@@ -24,7 +24,7 @@ git clone https://github.com/magdeil/volatility
 
 
 
-# Add another Netwrok Adapter 
+# Add another Network Adapter on AzureAD VMware
 * Bridge Network and replicate it
 
 # Install Python on VMware and necessary pip modules
