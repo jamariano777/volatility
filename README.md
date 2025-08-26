@@ -158,6 +158,41 @@ python vol.py -f <generated dmp file> windows.vadyarascan --pid <msedge id> --ya
 
 # ! PARSE LOGS TO DETECT BRUTE FORCE OR LOG IN ATTEMPTS AND SUSPICOUS LOGINS
 
+* Change the false to true !!! UNG PASSWORD DEN AND UNG SSL CERT DOUBLE CHECK
+```
+nano /etc/filebeat/filebeat.yml
+```
+
+## Test output make sure OK lahat
+```
+filebeat test output
+```
+<img width="551" height="210" alt="image" src="https://github.com/user-attachments/assets/2686a1f4-17a6-40d4-a4ff-0f5f2c3cf0b0" />
+
+
+
+## Add integrations 
+```
+sudo filebeat setup --index-management
+```
+<img width="597" height="60" alt="image" src="https://github.com/user-attachments/assets/ea89d0b4-51d6-4bf4-b21d-11ee886e3754" />
+
+
+## Enable Filebeat
+```
+systemctl enable --now filebeat
+```
+<img width="591" height="44" alt="image" src="https://github.com/user-attachments/assets/cb112e4a-acd4-4522-ac09-954f304a83e8" />
+
+
+
+
+<img width="591" height="63" alt="image" src="https://github.com/user-attachments/assets/7e1f4649-dd4f-425f-93e3-9512aca4a6db" />
+
+
+<img width="490" height="190" alt="image" src="https://github.com/user-attachments/assets/45b6bb35-d6cc-43e9-84df-874f4be06ca7" />
+
+
 ## Capture packets using wireshark on VMnet 8
 
 
