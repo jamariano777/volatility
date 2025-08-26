@@ -186,6 +186,12 @@ systemctl enable --now filebeat
 <img width="591" height="44" alt="image" src="https://github.com/user-attachments/assets/cb112e4a-acd4-4522-ac09-954f304a83e8" />
 
 
+# ! Check Logs Integration
+
+```
+event.type : "authentication" and message : "password"
+```
+
 
 ## Capture packets using wireshark on VMnet 8
 
