@@ -81,7 +81,7 @@ python vol.py -f "C:\Tools\volatility\<generated .dmp file>" windows.info
 ```
 python vol.py -f <generated dmp file> windows.pslist
 ```
-
+### REMEMBER TO GET PID LIST OF EDGE 
 * complete process list from the memory dump - showing every running process on the system at the time of capture!
 
 "This is like Task Manager, but for a frozen moment in time - and it can't be lied to!"
@@ -110,10 +110,45 @@ python vol.py -f <generated .dmp file> windows.netstat
 # network connection analysis using netscan
 * network connection analysis on a memory dump, revealing all active network connections and listening ports at the time the memory was captured.
 ```
-python vol.py -f "C:\Tools\<generated .dmp file>" windows.netscan
+python vol.py -f "<generated .dmp file>" windows.netscan
+```
+
+# 1 MORE DUMP OF MEMORY BUT WITH THE PRIVATE BROWSER CLOSED
+
+```
+python vol.py -f <generated dmp file> windows.netscan
 ```
 
 # Accept EULA terms and condition for strings.exe 
+## Using strings.exe to execute raw webpages files
 ```
 strings.exe
 ```
+
+# raw web content, URLs, and potentially sensitive data
+Loaded in memory when the system was running. This includes:
+
+1. Complete Web Pages - HTML, CSS, JavaScript that were loaded in browsers
+2. HTTP Requests/Responses - Headers, cookies, form data
+3. URLs and API Endpoints - Every website visited
+4. Cookies and Session Tokens - Authentication data
+5. JavaScript Code - Both legitimate and potentially malicious !!!  If a malicious site was visited, we can see the actual payload" !!!
+   
+<img width="972" height="740" alt="image" src="https://github.com/user-attachments/assets/6e1ae6ee-b560-48a3-9e60-a1c5fd166f80" />
+
+# Forensic evidence of browser activity using yarascan
+* Extracted URLs from Microsoft Edge's memory
+* "This is like finding the browser's memory diary - every website it ever loaded!"
+
+### using url rule
+```
+python vol.py -f <generated dmp file> windows.vadyarascan --pid <msedge id> --yara-file urls.yar | more
+```
+<img width="1509" height="682" alt="image" src="https://github.com/user-attachments/assets/eff2fb6e-2cb7-47ac-bd19-a1df91d8a3c3" />
+
+
+### using keywords rule
+```
+python vol.py -f <generated dmp file> windows.vadyarascan --pid <msedge id> --yara-file keywords.yar | more
+```
+<img width="1585" height="683" alt="image" src="https://github.com/user-attachments/assets/51f30525-90e6-4e17-81a2-d8e6819e1653" />
