@@ -152,3 +152,47 @@ python vol.py -f <generated dmp file> windows.vadyarascan --pid <msedge id> --ya
 python vol.py -f <generated dmp file> windows.vadyarascan --pid <msedge id> --yara-file keywords.yar | more
 ```
 <img width="1585" height="683" alt="image" src="https://github.com/user-attachments/assets/51f30525-90e6-4e17-81a2-d8e6819e1653" />
+
+
+
+
+# ! PARSE LOGS TO DETECT BRUTE FORCE OR LOG IN ATTEMPTS AND SUSPICOUS LOGINS
+
+## Capture packets using wireshark on VMnet 8
+
+
+* Paste SSH config to corebaba make sure linux is pingable to cisco corebaba
+```
+conf t
+username admin privilege 15 secret pass
+line console 0
+exec-timeout 0 0
+no login
+line vty 0 14
+transport input all
+login local
+exec-timeout 0 0
+exit
+crypto key generate rsa modulus 2048 label devs
+ip ssh rsa keypair-name devs
+ip ssh version 2
+end
+```
+
+* Updating Crypto policies on linux
+```
+update-crypto-policies --set LEGACY
+```
+* Reboot to take change effect of updating lib crypto policies
+```
+sudo reboot
+```
+
+* Login to cisco 
+```
+ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 -c aes256-cbc admin@10.M.1.4
+```
+
+<img width="1649" height="987" alt="image" src="https://github.com/user-attachments/assets/5b708e33-7503-4d2c-b340-f552dda79061" />
+
+
