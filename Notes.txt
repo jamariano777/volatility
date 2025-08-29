@@ -1,0 +1,26 @@
+Malware Life Cycle - Infection > Execution > Impact > Persistence
+Real Word Cases - WannaCry Global 2017, NotPetya 2017, Stuxnet 2010
+Blue Team Response
+
+WAZUHv2
+nmap
+sudo systemctl stop firewalld
+ftkimager
+autopsy
+kali
+
+massgrave
+volatility
+wireshark
+bitlock
+elsdtic
+magnet axiom
+veracrypt
+EDDv310
+kibana
+filebeat
+recuva
+
+rubrik
+kali
+owasp
